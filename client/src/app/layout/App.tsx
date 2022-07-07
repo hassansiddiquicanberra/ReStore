@@ -6,7 +6,12 @@ import {
   Typography,
 } from "@mui/material";
 import { useState } from "react";
+import { Route, Routes } from "react-router-dom";
+import AboutPage from "../../features/about/AboutPage";
 import Catalog from "../../features/catalog/Catalog";
+import ProductDetails from "../../features/catalog/ProductDetails";
+import ContactPage from "../../features/contact/ContactPage";
+import HomePage from "../../features/home/HomePage";
 import Header from "./header";
 
 function App() {
@@ -28,9 +33,7 @@ function App() {
     <ThemeProvider theme={theme}>
       <CssBaseline />
       <Header darkMode={darkMode} onThemeChange={onThemeChange} />
-      <Container>
-        <Catalog />
-      </Container>
+      <Container></Container>
     </ThemeProvider>
   );
 }
