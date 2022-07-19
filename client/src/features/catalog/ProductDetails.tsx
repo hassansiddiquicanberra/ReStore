@@ -12,9 +12,12 @@ import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import agent from "../../app/api/agent";
 import { Product } from "../../app/models/product";
+import NotFound from "../../app/errors/NotFound";
+import LoadingComponent from "../../app/layout/LoadingComponent";
 
 export default function ProductDetails() {
   const productApiUrl = "http://localhost:5000/api/products";
+  debugger;
   const { id } = useParams<{ id: string }>();
   const [product, setProduct] = useState<Product | null>(null);
   const [loading, setLoading] = useState(true);
@@ -27,9 +30,9 @@ export default function ProductDetails() {
       .finally(() => setLoading(false));
   }, [id]);
 
-  if (loading) return <h3>Loading ...</h3>;
+  if (loading) return <LoadingComponent message="Loading product..." />;
 
-  if (!product) return <h3>Product not found!</h3>;
+  if (!product) return <NotFound />;
 
   return (
     <Grid container spacing={6}>

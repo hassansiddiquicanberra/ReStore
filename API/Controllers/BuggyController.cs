@@ -15,14 +15,13 @@ public class BuggyController:BaseApiController
     [HttpGet("bad-request")]
     public ActionResult GetBadRequest()
     {
-        return BadRequest(new ProblemDetails
-        {  Title ="A bad request"   });
+        return BadRequest("This is a bad request");
     }
 
     [HttpGet("unauthorised")]
     public ActionResult Unauthorised()
     {
-        return Unauthorised();
+        return Unauthorized();
     }
 
     [HttpGet("validation-error")]
